@@ -8,7 +8,7 @@ from random import randint, choice
 class Ludo_Game:
     def __init__(self, root,Dice_side_one, Dice_side_two, Dice_side_three, Dice_side_four, Dice_side_five, Dice_side_six):
         self.window = root
-        
+        self.board = 0
         self.make_board = Canvas(self.window, bg="#141414", width=800, height=630)
         self.make_board.pack(fill=BOTH,expand=1)
  
@@ -483,12 +483,12 @@ if __name__ == '__main__':
     window.minsize(800,630)
     window.title("LUDO Game by DataFlair")
     window.iconbitmap("C:\\Users\\DELL\\Desktop\\DataFlair\\ludo_icon.ico")
-    block_six_side = ImageTk.PhotoImage(Image.open("C:\\Users\\DELL\\Desktop\\DataFlair\\Dice_6.jpg").resize((33, 33), Image.ANTIALIAS))
-    block_five_side = ImageTk.PhotoImage(Image.open("C:\\Users\\DELL\\Desktop\\DataFlair\\Dice_5.jpg").resize((33, 33), Image.ANTIALIAS))
-    block_four_side = ImageTk.PhotoImage(Image.open("C:\\Users\\DELL\\Desktop\\DataFlair\\Dice_4.jpg").resize((33, 33), Image.ANTIALIAS))
-    block_three_side = ImageTk.PhotoImage(Image.open("C:\\Users\\DELL\\Desktop\\DataFlair\\Dice_3.jpg").resize((33, 33),Image.ANTIALIAS))
-    block_two_side = ImageTk.PhotoImage(Image.open("C:\\Users\\DELL\\Desktop\\DataFlair\\Dice_2.jpg").resize((33, 33), Image.ANTIALIAS))
-    block_one_side = ImageTk.PhotoImage(Image.open("C:\\Users\\DELL\\Desktop\\DataFlair\\Dice_1.jpg").resize((33, 33), Image.ANTIALIAS))
+    block_six_side = ImageTk.PhotoImage(Image.open("dice1.jpg.webp").resize((33, 33), Image.ANTIALIAS))
+    block_five_side = ImageTk.PhotoImage(Image.open("dice2.jpg").resize((33, 33), Image.ANTIALIAS))
+    block_four_side = ImageTk.PhotoImage(Image.open("dice3.jpg").resize((33, 33), Image.ANTIALIAS))
+    block_three_side = ImageTk.PhotoImage(Image.open("dice4.jpg").resize((33, 33),Image.ANTIALIAS))
+    block_two_side = ImageTk.PhotoImage(Image.open("dice5.jpg").resize((33, 33), Image.ANTIALIAS))
+    block_one_side = ImageTk.PhotoImage(Image.open("dice6.jpg").resize((33, 33), Image.ANTIALIAS))
     Ludo_Game(window,block_six_side,block_five_side,block_four_side,block_three_side,block_two_side,block_one_side)
     window.mainloop()
 
