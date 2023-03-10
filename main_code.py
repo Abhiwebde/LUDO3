@@ -470,3 +470,27 @@ def Main_Controller(self, Coin_Color, Coin_num):
 
 
 #<----------------------------------------------------end of step 11---------------------------------------->
+
+
+
+
+#<---------------------------------------------------start of step 17------------------------------------------>
+
+if __name__ == '__main__':
+    window = Tk()
+    window.geometry("800x630")
+    window.maxsize(800,630)
+    window.minsize(800,630)
+    window.title("LUDO Game by DataFlair")
+    window.iconbitmap("C:\\Users\\DELL\\Desktop\\DataFlair\\ludo_icon.ico")
+    block_six_side = ImageTk.PhotoImage(Image.open("C:\\Users\\DELL\\Desktop\\DataFlair\\Dice_6.jpg").resize((33, 33), Image.ANTIALIAS))
+    block_five_side = ImageTk.PhotoImage(Image.open("C:\\Users\\DELL\\Desktop\\DataFlair\\Dice_5.jpg").resize((33, 33), Image.ANTIALIAS))
+    block_four_side = ImageTk.PhotoImage(Image.open("C:\\Users\\DELL\\Desktop\\DataFlair\\Dice_4.jpg").resize((33, 33), Image.ANTIALIAS))
+    block_three_side = ImageTk.PhotoImage(Image.open("C:\\Users\\DELL\\Desktop\\DataFlair\\Dice_3.jpg").resize((33, 33),Image.ANTIALIAS))
+    block_two_side = ImageTk.PhotoImage(Image.open("C:\\Users\\DELL\\Desktop\\DataFlair\\Dice_2.jpg").resize((33, 33), Image.ANTIALIAS))
+    block_one_side = ImageTk.PhotoImage(Image.open("C:\\Users\\DELL\\Desktop\\DataFlair\\Dice_1.jpg").resize((33, 33), Image.ANTIALIAS))
+    Ludo_Game(window,block_six_side,block_five_side,block_four_side,block_three_side,block_two_side,block_one_side)
+    window.mainloop()
+
+
+#<-------------------------------------------------------end of step 17---------------------------------------->
