@@ -919,7 +919,59 @@ Def Traversal_Control (self,Specific_Coin,num_label, num_label_X,num_label_Y, Pa
 #<-----------------------------------------------------step 15---------------------------------------------->
 
 
-
+def Check_Win_Runnerup(self,Coin_Color):
+        Destination_Reached = 0 
+        if Coin_Color == "red":
+            Temp_store = self.Red_coord
+            Temp_Delete = 0
+        elif Coin_Color == "green":
+            Temp_store = self.Green_coord
+            Temp_Delete = 3
+        elif Coin_Color == "yellow":
+            Temp_store = self.Yellow_coord
+            Temp_Delete = 2
+        else:
+            Temp_store = self.Blue_coord
+            Temp_Delete = 1#
+ 
+        for take in Temp_store:
+            if take == 106:
+                Destination_Reached = 1
+            else:
+                Destination_Reached = 0
+                break
+ 
+        if  Destination_Reached == 1:
+            self.TakePermission += 1
+            if self.TakePermission == 1:
+                if self.Robo == 1 and Coin_Color == "red":
+                    messagebox.showinfo("YOU WIN!!")
+                else:
+                    messagebox.showinfo("Winner","Congrats! You are the winner")
+            elif self.TakePermission == 2:
+                if self.Robo == 1 and Coin_Color == "red":
+                    messagebox.showinfo("Winner", "Hurrah! I am 1st runner")
+                else:
+                    messagebox.showinfo("Winner", "Wow! You are 1st runner")
+            elif self.TakePermission == 3:
+                if self.Robo == 1 and Coin_Color == "red":
+                    messagebox.showinfo("Result", "I am 2nd runner....Not bad at all")
+                else:
+                    messagebox.showinfo("Result", "You are 2nd runner....Better Luck next time")
+ 
+            self.Predict_BlockValue[Temp_Delete][1]['state'] = DISABLED
+            self.Total_player.remove(Temp_Delete)
+ 
+            if len(self.Total_player) == 1:
+                messagebox.showinfo("GAME OVER")
+                self.Predict_BlockValue[0][1]['state'] = DISABLED
+                return False
+            else:
+                self.time_for-=1
+        else:
+            print("Winner not decided")
+ 
+        return True
 
 
 #<---------------------------------------------------step 15 ends---------------------------------------------->
