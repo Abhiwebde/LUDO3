@@ -846,8 +846,135 @@ def Main_Controller(self, Coin_Color, Coin_num):
 
 #<----------------------------------------------------end of step 11---------------------------------------->
 
+#<------------------------------------------------------step 14--------------------------------------------->
 
 
+Def Traversal_Control (self,Specific_Coin,num_label, num_label_X,num_label_Y, Path_Counter, Coin_Counter ,Coin_Color):
+        if Coin_Color == "red" and Coin_Counter >= 100:
+            if int(Coin_Counter)+int(Path_Counter)<=106:
+               Coin_Counter = self.Traversal_Red(Specific_Coin, num_label, num_label_X, num_label_Y, Path_Counter, Coin_Counter)
+ 
+        elif Coin_Color == "green" and Coin_Counter >= 100:
+            if  int(Coin_Counter) + int(Path_Counter) <= 106:
+                Coin_Counter = self.Traversal_Green(Specific_Coin, num_label, num_label_X, num_label_Y,Path_Counter,Coin_Counter)
+ 
+        elif Coin_Color == "yellow" and Coin_Counter >= 100:
+            if  int(Coin_Counter) + int(Path_Counter) <= 106:
+                Coin_Counter = self.Traversal_Yellow(Specific_Coin, num_label, num_label_X, num_label_Y,Path_Counter,Coin_Counter)
+ 
+        elif Coin_Color == "blue" and Coin_Counter >= 100:
+            if  int(Coin_Counter) + int(Path_Counter) <= 106:
+                Coin_Counter = self.Traversal_Blue(Specific_Coin, num_label, num_label_X, num_label_Y,Path_Counter,Coin_Counter)
+ 
+        return Coin_Counter
+ 
+ 
+    def Traversal_Red(self, Specific_Coin, num_label, num_label_X, num_label_Y, Path_Counter, Coin_Counter):
+        while Path_Counter>0:
+            Coin_Counter += 1
+            Path_Counter -= 1
+            self.make_board.move(Specific_Coin, 40, 0)
+            num_label_X+=40
+            num_label.place(x=num_label_X,y=num_label_Y)
+            self.window.update()
+            time.sleep(0.2)
+        return Coin_Counter
+ 
+    def Traversal_Green(self, Specific_Coin, num_label, num_label_X, num_label_Y, Path_Counter, Coin_Counter):
+        while Path_Counter > 0:
+            Coin_Counter += 1
+            Path_Counter -= 1
+            self.make_board.move(Specific_Coin, 0, 40)
+            num_label_Y += 40
+            num_label.place(x=num_label_X, y=num_label_Y)
+            self.window.update()
+            time.sleep(0.2)
+        return Coin_Counter
+ 
+    def Traversal_Yellow(self, Specific_Coin, num_label, num_label_X, num_label_Y,Path_Counter,Coin_Counter):
+        while Path_Counter > 0:
+            Coin_Counter += 1
+            Path_Counter -= 1
+            self.make_board.move(Specific_Coin, -40, 0)
+            num_label_X -= 40
+            num_label.place(x=num_label_X, y=num_label_Y)
+            self.window.update()
+            time.sleep(0.2)
+        return Coin_Counter
+ 
+    def Traversal_Blue(self, Specific_Coin, num_label, num_label_X, num_label_Y,Path_Counter,Coin_Counter):
+        while Path_Counter > 0:
+            Coin_Counter += 1
+            Path_Counter -= 1
+            self.make_board.move(Specific_Coin, 0, -40)
+            num_label_Y -= 40
+            num_label.place(x=num_label_X, y=num_label_Y)
+            self.window.update()
+            time.sleep(0.2)
+        return Coin_Counter
+
+
+#<---------------------------------------------------step 14 ends------------------------------------------->
+
+#<-----------------------------------------------------step 15---------------------------------------------->
+
+
+def Check_Win_Runnerup(self,Coin_Color):
+        Destination_Reached = 0 
+        if Coin_Color == "red":
+            Temp_store = self.Red_coord
+            Temp_Delete = 0
+        elif Coin_Color == "green":
+            Temp_store = self.Green_coord
+            Temp_Delete = 3
+        elif Coin_Color == "yellow":
+            Temp_store = self.Yellow_coord
+            Temp_Delete = 2
+        else:
+            Temp_store = self.Blue_coord
+            Temp_Delete = 1#
+ 
+        for take in Temp_store:
+            if take == 106:
+                Destination_Reached = 1
+            else:
+                Destination_Reached = 0
+                break
+ 
+        if  Destination_Reached == 1:
+            self.TakePermission += 1
+            if self.TakePermission == 1:
+                if self.Robo == 1 and Coin_Color == "red":
+                    messagebox.showinfo("YOU WIN!!")
+                else:
+                    messagebox.showinfo("Winner","Congrats! You are the winner")
+            elif self.TakePermission == 2:
+                if self.Robo == 1 and Coin_Color == "red":
+                    messagebox.showinfo("Winner", "Hurrah! I am 1st runner")
+                else:
+                    messagebox.showinfo("Winner", "Wow! You are 1st runner")
+            elif self.TakePermission == 3:
+                if self.Robo == 1 and Coin_Color == "red":
+                    messagebox.showinfo("Result", "I am 2nd runner....Not bad at all")
+                else:
+                    messagebox.showinfo("Result", "You are 2nd runner....Better Luck next time")
+ 
+            self.Predict_BlockValue[Temp_Delete][1]['state'] = DISABLED
+            self.Total_player.remove(Temp_Delete)
+ 
+            if len(self.Total_player) == 1:
+                messagebox.showinfo("GAME OVER")
+                self.Predict_BlockValue[0][1]['state'] = DISABLED
+                return False
+            else:
+                self.time_for-=1
+        else:
+            print("Winner not decided")
+ 
+        return True
+
+
+#<---------------------------------------------------step 15 ends---------------------------------------------->
 
 #<---------------------------------------------------start of step 17------------------------------------------>
 
