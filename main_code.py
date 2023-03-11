@@ -353,6 +353,60 @@ def Initial_Control(self):
 
 #<-------------------------------------------------------------end of step5-------------------------------------------->
 
+#<-------------------------------------------------------------step 6--------------------------------------------------->
+
+
+def Prediction_Maker(self,color_indicator):
+        try:
+            if color_indicator == "red":
+                Predict_BlockValue = self.Predict_BlockValue[0]
+                if self.Robo and self.count_RoboStage < 3:
+                    self.count_RoboStage += 1
+                if self.Robo and self.count_RoboStage == 3 and self.Six_Counter < 2:
+                    Permanent_Dice_num = self.move_Red = 6
+                    self.count_RoboStage += 1
+                else:    
+                    Permanent_Dice_num = self.move_Red = randint(1, 6)
+ 
+            elif color_indicator == "blue":
+                Predict_BlockValue = self.Predict_BlockValue[1]
+                Permanent_Dice_num = self.move_Blue = randint(1, 6)
+                if self.Robo and Permanent_Dice_num == 6:
+                    for coin_loc in self.Position_Red_coin:
+                        if coin_loc>=40 and coin_loc<=46:
+                            Permanent_Dice_num = self.move_Blue = randint(1, 5)
+                            break
+                           
+            elif color_indicator == "yellow":
+                Predict_BlockValue = self.Predict_BlockValue[2]
+                Permanent_Dice_num = self.move_Yellow = randint(1, 6)
+ 
+            else:
+                Predict_BlockValue = self.Predict_BlockValue[3]
+                Permanent_Dice_num = self.move_Green = randint(1, 6)
+ 
+            Predict_BlockValue[1]['state'] = DISABLED
+            Temp_Counter = 12
+            while Temp_Counter>0:
+                move_Temp_Counter = randint(1, 6)
+                Predict_BlockValue[0]['image'] = self.Dice_side[move_Temp_Counter - 1]
+                self.window.update()
+                time.sleep(0.1)
+                Temp_Counter-=1
+ 
+            print("Prediction result: ", Permanent_Dice_num)
+ 
+            Predict_BlockValue[0]['image'] = self.Dice_side[Permanent_Dice_num-1]
+            if self.Robo == 1 and color_indicator == "red":
+                self.window.update()
+                time.sleep(0.4)
+            self.Instructional_Button(color_indicator,Permanent_Dice_num,Predict_BlockValue)
+        except:
+            print("Force Stop Error in Prediction")
+
+
+#<------------------------------------------------------------step 6 ends----------------------------------------------->
+
 #<--------------------------------------------------------adding contents of step7------------------------------------->
 
 def Instructional_Button(self,color_indicator,Permanent_Dice_num, Predict_BlockValue):
@@ -522,6 +576,71 @@ def Instructional_Button_Red(self):
 
 
 #<------------------------------------------------------step 9 ends------------------------------------------------------>
+
+#<------------------------------------------------------step 10---------------------------------------------------------->
+
+
+def Start_position_RedCircle(self, Coin_num):
+        self.make_board.delete(self.Red_coin[int(Coin_num)-1])
+        self.Red_coin[int(Coin_num)-1] = self.make_board.create_oval(100 + 40, 15+(40*6), 100 +40 + 40, 15+(40*6)+40, fill="red", width=3, outline="black")
+ 
+        self.Red_label[int(Coin_num)-1].place_forget()
+        Red_label_X = 100 + 40 + 10
+        Red_label_Y = 15 + (40 * 6) + 5
+        self.Red_label[int(Coin_num)-1].place(x=Red_label_X, y=Red_label_Y)
+ 
+        self.Position_Red_coin[int(Coin_num)-1] = 1
+        self.window.update()
+        time.sleep(0.2)
+ 
+    def Start_position_GreenCircle(self,Coin_num):
+        self.make_board.delete(self.Green_coin[int(Coin_num)-1])
+        self.Green_coin[int(Coin_num)-1] = self.make_board.create_oval(100 + (40*8), 15 + 40, 100 +(40*9), 15 + 40+ 40, fill="green", width=3)
+ 
+        self.Green_label[int(Coin_num)-1].place_forget()
+        Green_label_X = 100 + (40*8) + 10
+        Green_label_Y = 15 + 40 + 5
+        self.Green_label[int(Coin_num)-1].place(x=Green_label_X, y=Green_label_Y)
+ 
+        self.Position_Green_coin[int(Coin_num)-1] = 14
+        self.window.update()
+        time.sleep(0.2)
+ 
+    def Start_position_YellowCircle(self,Coin_num):
+        self.make_board.delete(self.Yellow_coin[int(Coin_num)-1])
+        self.Yellow_coin[int(Coin_num)-1] = self.make_board.create_oval(100 + (40 * 6)+(40*3)+(40*4), 15 + (40*8), 100 + (40 * 6)+(40*3)+(40*5), 15 + (40*9), fill="yellow", width=3)
+ 
+        self.Yellow_label[int(Coin_num)-1].place_forget()
+        Yellow_label_X = 100 + (40 * 6)+(40*3)+(40*4) + 10
+        Yellow_label_Y = 15 + (40*8) + 5
+        self.Yellow_label[int(Coin_num) - 1].place(x=Yellow_label_X, y=Yellow_label_Y)
+ 
+        self.Position_Yellow_coin[int(Coin_num) - 1] = 27
+        self.window.update()
+        time.sleep(0.2)
+ 
+    def Start_position_BlueCircle(self,Coin_num):
+        self.make_board.delete(self.Blue_coin[int(Coin_num)-1])
+        self.Blue_coin[int(Coin_num)-1] = self.make_board.create_oval(100+240,340+(40*5)-5,100+240+40,340+(40*6)-5,fill="blue",width=3)
+ 
+        self.Blue_label[int(Coin_num)-1].place_forget()
+        Blue_label_X = 100+240 + 10
+        Blue_label_Y = 340+(40*5)-5 + 5
+        self.Blue_label[int(Coin_num) - 1].place(x=Blue_label_X, y=Blue_label_Y)
+ 
+        self.Position_Blue_coin[int(Coin_num) - 1] = 40
+        self.window.update()
+        time.sleep(0.2)
+def State_controller_Button(self, nums_btn_List, State_Control = 1):
+        if State_Control:
+            for num_btn in nums_btn_List:
+                num_btn['state'] = NORMAL
+        else:
+            for num_btn in nums_btn_List:
+                num_btn['state'] = DISABLED
+
+
+#<---------------------------------------------------step 10 ends--------------------------------------------------------->
 
 #<------------------------------------------------------start of step 11-------------------------------------------------->
             
