@@ -169,57 +169,189 @@ def Board(self):
         self.make_board.create_polygon(100 + 240, 15 + 240+(40*3), 100 + 240 + 60, 15 + 240 + 60, 100 + 240 + (40 * 3), 15 + 240+(40*3), width=3, fill="blue",outline="black")
 
 
-#<--------------------------------------------------------step 6------------------------------------------------------->
+#<-------------------------------------------------------------adding step4-------------------------------------------->
+Red1_Coin = self.make_board.create_oval(100+40, 15+40, 100+40+40, 15+40+40, width=3, fill="red", outline="black")
+     Red2_Coin = self.make_board.create_oval(100+40+60+60, 15 + 40, 100+40+60+60+40, 15 + 40 + 40, width=3, fill="red", outline="black")
+     Red3_Coin = self.make_board.create_oval(100 + 40 + 60 + 60, 15 + 40 + 100, 100 + 40 + 60 + 60 + 40, 15 + 40 + 40 + 100, width=3, fill="red", outline="black")
+     Red4_Coin = self.make_board.create_oval(100 + 40, 15 + 40+100, 100 + 40 + 40, 15 + 40 + 40+100, width=3,fill="red", outline="black")
+     self.Red_coin.append(Red1_Coin)
+     self.Red_coin.append(Red2_Coin)
+     self.Red_coin.append(Red3_Coin)
+     self.Red_coin.append(Red4_Coin)
+ 
+     Red1_label = Label(self.make_board, text="1", font=("Arial", 15, "bold"), bg="red", fg="black")
+     Red1_label.place(x=100 + 40 + 10, y=15 + 40 + 5)
+     Red2_label = Label(self.make_board, text="2", font=("Arial", 15, "bold"), bg="red", fg="black")
+     Red2_label.place(x=100 + 40 + 60 + 60 + 10, y=15 + 40 + 5)
+     Red3_label = Label(self.make_board, text="3", font=("Arial", 15, "bold"), bg="red", fg="black")
+     Red3_label.place(x=100 + 40 + 60 + 60 + 10, y=15 + 40 + 100 + 5)
+     Red4_label = Label(self.make_board, text="4", font=("Arial", 15, "bold"), bg="red", fg="black")
+     Red4_label.place(x=100 + 40 + 10, y=15 + 40 + 100 + 5)
+     self.Red_label.append(Red1_label)
+     self.Red_label.append(Red2_label)
+     self.Red_label.append(Red3_label)
+     self.Red_label.append(Red4_label)
+ 
+     Green1_Coin = self.make_board.create_oval(340+(40*3)+40, 15 + 40, 340+(40*3)+40 + 40, 15 + 40 + 40, width=3, fill="green", outline="black")
+     Green2_Coin = self.make_board.create_oval(340+(40*3)+40+ 60 + 40+20, 15 + 40, 340+(40*3)+40 + 60 + 40 + 40+20, 15 + 40 + 40, width=3, fill="green", outline="black")
+     Green3_Coin = self.make_board.create_oval(340 + (40 * 3) + 40 + 60 + 40 + 20, 15 + 40 + 100, 340 + (40 * 3) + 40 + 60 + 40 + 40 + 20, 15 + 40 + 40 + 100, width=3, fill="green", outline="black")
+     Green4_Coin = self.make_board.create_oval(340+(40*3)+40, 15 + 40 + 100, 340+(40*3)+40 + 40, 15 + 40 + 40 + 100, width=3, fill="green", outline="black")
+     self.Green_coin.append(Green1_Coin)
+     self.Green_coin.append(Green2_Coin)
+     self.Green_coin.append(Green3_Coin)
+     self.Green_coin.append(Green4_Coin)
+ 
+     Green1_label = Label(self.make_board, text="1", font=("Arial", 15, "bold"), bg="green", fg="black")
+     Green1_label.place(x=340 + (40 * 3) + 40 + 10, y=15 + 40 + 5)
+     Green2_label = Label(self.make_board, text="2", font=("Arial", 15, "bold"), bg="green", fg="black")
+     Green2_label.place(x=340 + (40 * 3) + 40 + 40 + 60 + 30, y=15 + 40 + 5)
+     Green3_label = Label(self.make_board, text="3", font=("Arial", 15, "bold"), bg="green", fg="black")
+     Green3_label.place(x=340 + (40 * 3) + 40 + 40 + 60 + 30, y=15 + 40 + 100 + 5)
+     Green4_label = Label(self.make_board, text="4", font=("Arial", 15, "bold"), bg="green", fg="black")
+     Green4_label.place(x=340 + (40 * 3) + 40 + 10, y=15 + 40 + 100 + 5)
+     self.Green_label.append(Green1_label)
+     self.Green_label.append(Green2_label)
+     self.Green_label.append(Green3_label)
+     self.Green_label.append(Green4_label)
+ 
+     Blue1_Coin = self.make_board.create_oval(100 + 40, 340+80+15, 100 + 40 + 40, 340+80+40+15, width=3, fill="blue", outline="black")
+     Blue2_Coin = self.make_board.create_oval(100 + 40 + 60 + 40+20, 340+80+15, 100 + 40 + 60 + 40 + 40+20, 340+80+40+15, width=3, fill="blue", outline="black")
+     Blue3_Coin = self.make_board.create_oval(100 + 40 + 60 + 40 + 20, 340 + 80 + 60 + 40 + 15, 100 + 40 + 60 + 40 + 40 + 20, 340 + 80 + 60 + 40 + 40 + 15, width=3, fill="blue", outline="black")
+     Blue4_Coin = self.make_board.create_oval( 100 + 40, 340+80+60+40+15, 100 + 40 + 40, 340+80+60+40+40+15, width=3, fill="blue", outline="black")
+     self.Blue_coin.append(Blue1_Coin)
+     self.Blue_coin.append(Blue2_Coin)
+     self.Blue_coin.append(Blue3_Coin)
+     self.Blue_coin.append(Blue4_Coin)
+ 
+     Blue1_label = Label(self.make_board, text="1", font=("Arial", 15, "bold"), bg="blue", fg="black")
+     Blue1_label.place(x=100 + 40 + 10, y=30 + (40 * 6) + (40 * 3) + 40 + 10)
+     Blue2_label = Label(self.make_board, text="2", font=("Arial", 15, "bold"), bg="blue", fg="black")
+     Blue2_label.place(x=100 + 40 + 60 + 60 + 10, y=30 + (40 * 6) + (40 * 3) + 40 + 10)
+     Blue3_label = Label(self.make_board, text="3", font=("Arial", 15, "bold"), bg="blue", fg="black")
+     Blue3_label.place(x=100 + 40 + 60 + 60 + 10, y=30 + (40 * 6) + (40 * 3) + 40 + 60 + 40 + 10)
+     Blue4_label = Label(self.make_board, text="4", font=("Arial", 15, "bold"), bg="blue", fg="black")
+     Blue4_label.place(x=100 + 40 + 10, y=30 + (40 * 6) + (40 * 3) + 40 + 60 + 40 + 10)
+     self.Blue_label.append(Blue1_label)
+     self.Blue_label.append(Blue2_label)
+     self.Blue_label.append(Blue3_label)
+     self.Blue_label.append(Blue4_label)
+ 
+     Yellow1_Coin = self.make_board.create_oval(340 + (40 * 3) + 40, 340+80+15, 340 + (40 * 3) + 40 + 40, 340+80+40+15, width=3, fill="yellow", outline="black")
+     Yellow2_Coin = self.make_board.create_oval(340 + (40 * 3) + 40 + 60 + 40 + 20, 340+80+15, 340 + (40 * 3) + 40 + 60 + 40 + 40+20, 340+80+40+15, width=3, fill="yellow", outline="black")
+     Yellow3_Coin = self.make_board.create_oval(340 + (40 * 3) + 40 + 60 + 40 + 20, 340 + 80 + 60 + 40 + 15, 340 + (40 * 3) + 40 + 60 + 40 + 40 + 20, 340 + 80 + 60 + 40 + 40 + 15, width=3, fill="yellow", outline="black")
+     Yellow4_Coin = self.make_board.create_oval(340 + (40 * 3) + 40, 340+80+60+40+15, 340 + (40 * 3) + 40 + 40,340+80+60+40+40+15, width=3, fill="yellow", outline="black")
+     self.Yellow_coin.append(Yellow1_Coin)
+     self.Yellow_coin.append(Yellow2_Coin)
+     self.Yellow_coin.append(Yellow3_Coin)
+     self.Yellow_coin.append(Yellow4_Coin)
+ 
+     Yellow1_label = Label(self.make_board, text="1", font=("Arial", 15, "bold"), bg="yellow", fg="black")
+     Yellow1_label.place(x=340 + (40 * 3) + 40 + 10, y=30 + (40 * 6) + (40 * 3) + 40 + 10)
+     Yellow2_label = Label(self.make_board, text="2", font=("Arial", 15, "bold"), bg="yellow", fg="black")
+     Yellow2_label.place(x=340 + (40 * 3) + 40 + 40 + 60 + 30, y=30 + (40 * 6) + (40 * 3) + 40 + 10)
+     Yellow3_label = Label(self.make_board, text="3", font=("Arial", 15, "bold"), bg="yellow", fg="black")
+     Yellow3_label.place(x=340 + (40 * 3) + 40 + 40 + 60 + 30, y=30 + (40 * 6) + (40 * 3) + 40 + 100 + 10)
+     Yellow4_label = Label(self.make_board, text="4", font=("Arial", 15, "bold"), bg="yellow", fg="black")
+     Yellow4_label.place(x=340 + (40 * 3) + 40 + 10, y=30 + (40 * 6) + (40 * 3) + 40 + 100 + 10)
+     self.Yellow_label.append(Yellow1_label)
+     self.Yellow_label.append(Yellow2_label)
+     self.Yellow_label.append(Yellow3_label)
+     self.Yellow_label.append(Yellow4_label)
+#<-------------------------------------------------------------end of step4-------------------------------------------->
 
-def Prediction_Maker(self,color_indicator):
-        try:
-            if color_indicator == "red":
-                Predict_BlockValue = self.Predict_BlockValue[0]
-                if self.Robo and self.count_RoboStage < 3:
-                    self.count_RoboStage += 1
-                if self.Robo and self.count_RoboStage == 3 and self.Six_Counter < 2:
-                    Permanent_Dice_num = self.move_Red = 6
-                    self.count_RoboStage += 1
-                else:    
-                    Permanent_Dice_num = self.move_Red = randint(1, 6)
- 
-            elif color_indicator == "blue":
-                Predict_BlockValue = self.Predict_BlockValue[1]
-                Permanent_Dice_num = self.move_Blue = randint(1, 6)
-                if self.Robo and Permanent_Dice_num == 6:
-                    for coin_loc in self.Position_Red_coin:
-                        if coin_loc>=40 and coin_loc<=46:
-                            Permanent_Dice_num = self.move_Blue = randint(1, 5)
-                            break
-                           
-            elif color_indicator == "yellow":
-                Predict_BlockValue = self.Predict_BlockValue[2]
-                Permanent_Dice_num = self.move_Yellow = randint(1, 6)
- 
-            else:
-                Predict_BlockValue = self.Predict_BlockValue[3]
-                Permanent_Dice_num = self.move_Green = randint(1, 6)
- 
-            Predict_BlockValue[1]['state'] = DISABLED
-            Temp_Counter = 12
-            while Temp_Counter>0:
-                move_Temp_Counter = randint(1, 6)
-                Predict_BlockValue[0]['image'] = self.Dice_side[move_Temp_Counter - 1]
-                self.window.update()
-                time.sleep(0.1)
-                Temp_Counter-=1
- 
-            print("Prediction result: ", Permanent_Dice_num)
- 
-            Predict_BlockValue[0]['image'] = self.Dice_side[Permanent_Dice_num-1]
-            if self.Robo == 1 and color_indicator == "red":
-                self.window.update()
-                time.sleep(0.4)
-            self.Instructional_Button(color_indicator,Permanent_Dice_num,Predict_BlockValue)
-        except:
-            print("Force Stop Error in Prediction")
+#<-------------------------------------------------------------start of step5-------------------------------------------->
 
-#<--------------------------------------------------------step 6 ends-------------------------------------------------->
+def Initial_Control(self):
+    for i in range(4):
+        self.Predict_BlockValue[i][1]['state'] = DISABLED
+ 
+    Top = Toplevel()
+    Top.geometry("530x300")
+    Top.maxsize(530,300)
+    Top.minsize(530,300)
+    Top.config(bg="white")
+    Top.iconbitmap("C:\\Users\\DELL\\Desktop\\DataFlair\\ludo_icon.ico")
+ 
+    Head = Label(Top,text="Total number of players",font=("Times new roman",30,"bold","italic"))
+    Head.place(x=50,y=30)
+    Entry_take = Entry(Top,font=("Times new roman",18,"bold","italic"),relief=SUNKEN,bd=5,width=12, state=DISABLED)
+    Entry_take.place(x=130,y=85)
+    Entry_take.focus()
+ 
+    def Filter_value():
+        def input_filter_value(Coin_num):
+            try:
+                return True if (4>=int(Coin_num)>=2) or type(Coin_num) == int else False
+            except:
+                return False
+ 
+        take_Response = input_filter_value(Entry_take.get())
+        if take_Response:
+            for player_index in range(int(Entry_take.get())):
+                self.Total_player.append(player_index)
+            print(self.Total_player)
+            self.Command_Maker()
+            Top.destroy()
+        else:
+            messagebox.showerror("Input Error", "Please input number of players between 2 and 4")
+            Top.destroy()
+            self.Initial_Control()
+ 
+    btn_Submit = Button(Top,text="Submit",bg="#262626",fg="white",font=("Times new roman",13,"bold"),relief=RAISED,bd=3,command=Filter_value,state=DISABLED)
+    btn_Submit.place(x=330,y=87)
+ 
+    def Operate_computer(ind):
+        if ind:
+            self.Robo = 1
+            for player_index in range(2):
+                self.Total_player.append(player_index)
+            print(self.Total_player)
+            def delay_instrctions(Time_is):
+                if Place_ins['text'] != "":
+                    Place_ins.place_forget()
+                if Play_Command['text'] != "":
+                    Play_Command.place_forget()
+           
+                Place_ins['text'] = f"  Your game will start within {Time_is} sec"
+                Place_ins.place(x=20, y=220)
+ 
+                if Time_is > 5:
+                    Play_Command['text'] = f"Machine Play With Red and You Play With Sky Blue"
+                elif Time_is>= 2 and Time_is<5:
+                    Play_Command['text'] = f"You Will Get the First Chance to play"
+                else:
+                    Play_Command['text'] = f"Enjoy this Game"
+                Play_Command.place(x=10, y=260)
+ 
+            Time_is = 5
+            Place_ins = Label(Top, text="", font=("Arial", 20, "bold"), fg="#FF0000", bg="#141414")
+            Play_Command = Label(Top, text="", font=("Arial", 12, "bold"), fg="#af7439", bg="#141414")
+ 
+            try:
+                while Time_is:
+                    delay_instrctions(Time_is)
+                    Time_is-=1
+                    self.window.update()
+                    time.sleep(1)
+                Top.destroy()
+            except:
+                print("Force Stop Error in Operate computer")
+            self.Predict_BlockValue[1][1]['state'] = NORMAL
+        else:
+            btn_Submit['state'] = NORMAL
+            Entry_take['state'] = NORMAL
+ 
+   
+    btn_PC = Button(Top,text="Play With Computer",bg="#262626",fg="green",font=("Helvetica",15,"bold"),relief=RAISED,bd=3,command=lambda: Operate_computer(1), activebackground="#262626")
+    btn_PC.place(x=30,y=160)
+ 
+    btn_PF = Button(Top,text="Play With Friends",bg="#262626",fg="green",font=("Helvetica",15,"bold"),relief=RAISED,bd=3,command=lambda: Operate_computer(0), activebackground="#262626")
+    btn_PF.place(x=260,y=160)
+ 
+    Top.mainloop()
+
+
+#<-------------------------------------------------------------end of step5-------------------------------------------->
 
 #<--------------------------------------------------------adding contents of step7------------------------------------->
 
